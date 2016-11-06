@@ -43,7 +43,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ArrayPagerAdapter<ProfileFragment> buildAdapter() {
         ArrayList<PageDescriptor> pages = new ArrayList<>();
 
-        ProfilePojo profilePojo = new ProfilePojo();
         for (int i = 0; i < 10; i++) {
             pages.add(new SimplePageDescriptor(buildTag(i), buildTitle(i)));
         }
