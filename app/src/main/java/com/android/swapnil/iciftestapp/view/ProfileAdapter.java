@@ -1,4 +1,4 @@
-package com.android.swapnil.iciftestapp;
+package com.android.swapnil.iciftestapp.view;
 
 import android.support.v4.app.FragmentManager;
 

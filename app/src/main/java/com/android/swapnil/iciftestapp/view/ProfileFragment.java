@@ -1,4 +1,4 @@
-package com.android.swapnil.iciftestapp;
+package com.android.swapnil.iciftestapp.view;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -9,16 +9,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.android.swapnil.iciftestapp.R;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class ProfileFragment extends Fragment {
 
     private String fragTitle;
 
-    private TextView titleText;
+    @InjectView(R.id.title)TextView titleText;
 
-    private View bottomContainer;
+    @InjectView(R.id.bottomView)View bottomContainer;
 
     private Drawable drawable;
 
@@ -50,8 +54,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view, container, false);
-        titleText = (TextView) view.findViewById(R.id.title);
-        bottomContainer = view.findViewById(R.id.bottomView);
+        ButterKnife.inject(this,view);
         titleText.setText("Page " + fragTitle);
         titleText.setBackground(drawable);
         bottomContainer.setBackground(resize(drawable));

@@ -1,4 +1,4 @@
-package com.android.swapnil.iciftestapp;
+package com.android.swapnil.iciftestapp.view;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -8,16 +8,23 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.android.swapnil.iciftestapp.R;
 import com.commonsware.cwac.pager.PageDescriptor;
 import com.commonsware.cwac.pager.SimplePageDescriptor;
 import com.commonsware.cwac.pager.v4.ArrayPagerAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener {
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
-    private ViewPager mPager;
-    private Button like;
+public class MainActivity extends FragmentActivity{
+
+    @InjectView(R.id.pager)
+    ViewPager mPager;
+    @InjectView(R.id.like)
+    Button like;
     private ArrayPagerAdapter<ProfileFragment> adapter = null;
     private int pageNumber = 1;
 
@@ -25,18 +32,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mPager = (ViewPager) findViewById(R.id.pager);
-        like = (Button) findViewById(R.id.like);
+        ButterKnife.inject(this);
 
         adapter = buildAdapter();
         mPager.setAdapter(adapter);
 
-        like.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
+    @OnClick(R.id.like)
+    public void likeButtonClick() {
         remove();
     }
 
