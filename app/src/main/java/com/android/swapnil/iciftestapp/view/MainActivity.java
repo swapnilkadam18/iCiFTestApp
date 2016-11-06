@@ -20,14 +20,13 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MainActivity extends FragmentActivity implements MVP_Main.presenterToView{
+public class MainActivity extends FragmentActivity implements MVP_Main.presenterToView {
 
     @InjectView(R.id.pager)
     ViewPager mPager;
     @InjectView(R.id.like)
     Button like;
     private ArrayPagerAdapter<ProfileFragment> adapter = null;
-//    private int pageNumber = 1;
 
     private MVP_Main.viewToPresenter viewToPresenter;
 
@@ -41,9 +40,6 @@ public class MainActivity extends FragmentActivity implements MVP_Main.presenter
 
         viewToPresenter.getBuildAdapter();
 
-        //adapter = buildAdapter();
-//        mPager.setAdapter(adapter);
-
     }
 
     @OnClick(R.id.like)
@@ -56,24 +52,6 @@ public class MainActivity extends FragmentActivity implements MVP_Main.presenter
         adapter = new ProfileAdapter(getSupportFragmentManager(), pages);
         mPager.setAdapter(adapter);
     }
-
-//    private ArrayPagerAdapter<ProfileFragment> buildAdapter() {
-//        ArrayList<PageDescriptor> pages = new ArrayList<>();
-//
-//        for (int i = 0; i < 10; i++) {
-//            pages.add(new SimplePageDescriptor(buildTag(i), buildTitle(i)));
-//        }
-//
-//        return (new ProfileAdapter(getSupportFragmentManager(), pages));
-//    }
-
-//    private String buildTag(int position) {
-//        return ("editor" + String.valueOf(pageNumber++));
-//    }
-//
-//    private String buildTitle(int position) {
-//        return (String.format(getString(R.string.hint), position + 1));
-//    }
 
     private void remove() {
         if (adapter.getCount() > 1) {

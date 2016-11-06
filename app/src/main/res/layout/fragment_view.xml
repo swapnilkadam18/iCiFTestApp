@@ -22,7 +22,6 @@
         android:layout_weight="0.1"
         android:gravity="start"
         android:orientation="horizontal"
-        android:alpha="0.4"
         android:id="@+id/bottomView"/>
 
 </LinearLayout>
