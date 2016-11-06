@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">iCiFTestApp</string>
+    <string name="str_main_btn_like">Like</string>
+    <string name="hint">%d</string>
+</resources>
